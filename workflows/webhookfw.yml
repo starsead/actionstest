@@ -1,0 +1,15 @@
+on:
+  webhook:
+    method: post
+jobs:
+  slack:
+    name: Send a message to Slack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_MEDIA_HOOK }}
+        uses: Ilshidur/action-slack@2.1.0
+        with:
+          args: |
+            New commens with hacker news
